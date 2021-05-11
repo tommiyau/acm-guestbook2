@@ -1,0 +1,11 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Channel
+metadata:
+  name: guestbook2-channel
+  namespace: open-cluster-management
+  labels:
+    app: guestbook2-channel
+    release: 0.1.0
+spec:
+  type: Git
+  pathname: https://github.com/tommiyau/acm-guestbook2.git
