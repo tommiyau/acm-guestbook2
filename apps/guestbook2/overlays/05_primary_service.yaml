@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: redis-primary
+spec:
+  type: ClusterIP
+  ports:
+    - port: 6379
+  selector:
+    app: guestbook2
+    role: primary
+    tier: backend
