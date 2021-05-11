@@ -1,0 +1,16 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: guestbook2-subscription
+  namespace: guestbook2
+  labels:
+    app: guestbook2-app
+  annotations:
+    apps.open-cluster-management.io/git-path: apps/guestbook2/
+    apps.open-cluster-management.io/git-branch: stage
+spec:
+  channel: open-cluster-management/guestbook-channel
+  placement:
+    placementRef:
+      kind: PlacementRule
+      name: guestbook2-development-clusters

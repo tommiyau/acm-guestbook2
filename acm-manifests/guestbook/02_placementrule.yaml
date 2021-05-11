@@ -1,0 +1,16 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: guestbook2-development-clusters
+  namespace: guestbook2
+  labels:
+    app: guestbook2
+spec:
+  clusterReplica: 1
+  clusterConditions:
+    - type: "ManagedClusterConditionAvailable"
+      status: "True"
+  clusterSelector:
+    matchExpressions: []
+    matchLabels:
+      environment: "sit"
