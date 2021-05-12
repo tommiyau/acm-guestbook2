@@ -25,3 +25,13 @@ spec:
         env:
         - name: GET_HOSTS_FROM
           value: dns
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: role
+                    operator: In
+                    values:
+                      - primary
+              topologyKey: kubernetes.io/hostname    
