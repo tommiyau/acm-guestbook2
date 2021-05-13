@@ -1,16 +1,16 @@
-    kind: Service
-    apiVersion: v1
-    metadata:
-      name: redis-secondary
-      labels:
-        app: redis
-        role: secondary
-        tier: backend      
-    spec:
-      type: ClusterIP
-      ports:
-        - port: 6379
-      selector:
-        app: redis
-        role: secondary
-        tier: backend
+kind: Service
+apiVersion: v1
+metadata:
+  name: redis-secondary
+    labels:
+      app: redis
+      role: secondary
+      tier: backend      
+  spec:
+    type: ClusterIP
+    ports:
+      - port: 6379
+    selector:
+      app: redis
+      role: secondary
+      tier: backend
