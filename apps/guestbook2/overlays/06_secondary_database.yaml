@@ -5,14 +5,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: guestbook2
+      app: redis
       role: secondary
       tier: backend
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
-        app: guestbook2
+        app: redis
         role: secondary
         tier: backend
     spec:
@@ -22,6 +22,10 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 6379
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
         env:
         - name: GET_HOSTS_FROM
           value: dns
