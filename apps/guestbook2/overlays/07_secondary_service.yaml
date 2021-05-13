@@ -2,6 +2,10 @@
     apiVersion: v1
     metadata:
       name: redis-secondary
+      labels:
+        app: redis
+        role: secondary
+        tier: backend      
     spec:
       type: ClusterIP
       ports:
