@@ -27,11 +27,13 @@ spec:
           value: dns
       affinity:
         podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 50
+            podAffinityTerm:
+              labelSelector:
                 matchExpressions:
                   - key: role
                     operator: In
                     values:
                       - primary
-              topologyKey: kubernetes.io/hostname    
+              topologyKey: kubernetes.io/hostname
