@@ -2,6 +2,10 @@ kind: Service
 apiVersion: v1
 metadata:
   name: redis-primary
+  labels:
+    app: redis
+    role: primary
+    tier: backend
 spec:
   type: ClusterIP
   ports:
