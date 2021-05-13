@@ -7,6 +7,6 @@ spec:
   ports:
     - port: 6379
   selector:
-    app: guestbook2
+    app: redis
     role: primary
     tier: backend
