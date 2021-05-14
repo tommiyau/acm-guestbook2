@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: guestbook2
       tier: frontend
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
@@ -18,6 +18,9 @@ spec:
       serviceAccount: guestbook2-sa
       containers:
         - name: frontend
+          volumeMounts:
+          - mountPath: /var/www/html
+            name: vol1
           resources:
             requests:
               cpu: 100m
@@ -30,3 +33,8 @@ spec:
           env:
           - name: GET_HOSTS_FROM
             value: dns
+      volumes:
+        - name: vol1 
+          configMap:
+            name: guestbook-config
+            defaultMode: 420
